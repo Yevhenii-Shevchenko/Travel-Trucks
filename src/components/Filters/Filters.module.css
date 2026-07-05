@@ -1,0 +1,121 @@
+.sidebar {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 16px;
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px 14px 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: none;
+}
+
+.groupTitle {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+  text-transform: none;
+}
+
+.radioRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioCustom {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-text-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease;
+}
+
+.radioCustom::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-text);
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+
+.radioInput:checked + .radioCustom {
+  border-color: var(--color-text);
+}
+
+.radioInput:checked + .radioCustom::after {
+  transform: scale(1);
+}
+
+.searchBtn {
+  width: 100%;
+}
+
+.clearBtn {
+  width: 100%;
+}

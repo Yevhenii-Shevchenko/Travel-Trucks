@@ -1,0 +1,13 @@
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.filled {
+  color: var(--color-star);
+}
+
+.empty {
+  color: var(--color-star-empty);
+}
