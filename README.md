@@ -98,7 +98,7 @@ booking endpoint), update those two files and the rest of the app keeps working.
 
 ## 👤 Author
 
-_Add your name, GitHub, and contact info here before submission._
+_Shevchenko Yevhenii, [GitHub https://github.com/Yevhenii-Shevchenko]._
 
 ## 🔗 Deployment
 
