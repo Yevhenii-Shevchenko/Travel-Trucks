@@ -1,66 +1,66 @@
-# TravelTrucks — Camper Rental Web App
+# TravelTrucks — вебзастосунок для оренди кемперів
 
-A frontend application for **TravelTrucks**, a camper-van rental company.
-Built as a GoIT capstone project: browse a catalog of campers, filter by
-location/body type/engine/transmission, view full camper details with a
-photo gallery and reviews, and submit a booking request.
+Фронтенд-застосунок для **TravelTrucks**, компанії з оренди кемпер-ванів.
+Розроблено як капстоун-проєкт GoIT: перегляд каталогу кемперів, фільтрація за
+місцем/типом кузова/двигуном/коробкою передач, перегляд детальної інформації з
+фотогалереєю та відгуками, а також відправка запиту на бронювання.
 
-## ✨ Features
+## ✨ Функції
 
-- **Home page** — hero banner with a call to action leading to the catalog.
-- **Catalog page** (`/catalog`)
-  - Filter campers by location, camper form (Alcove / Panel Van / Integrated /
-    Semi Integrated), engine (Diesel / Petrol / Hybrid / Electric), and
-    transmission (Automatic / Manual).
-  - Infinite pagination via **Load more** (4 campers per page), implemented
-    with `useInfiniteQuery` from TanStack Query, respecting active filters.
-  - "No campers found" empty state, loading state, and error state.
-- **Camper details page** (`/catalog/[camperId]`)
-  - Opens in a new browser tab from the catalog card's **Show more** button.
-  - Photo gallery with thumbnails (Swiper, thumbs-gallery pattern).
-  - Full specs (form, dimensions, tank, consumption) and equipment badges.
-  - User reviews rendered on a 5-star scale.
-  - Booking form (name, email, date, comment) with client-side validation
-    and a success notification on submit.
+- **Головна сторінка** — банер з закликом до дії, що веде до каталогу.
+- **Сторінка каталогу** (`/catalog`)
+  - Фільтрація кемперів за локацією, формою кемпера (Alcove / Panel Van / Integrated /
+    Semi Integrated), типом двигуна (Diesel / Petrol / Hybrid / Electric) та
+    коробкою передач (Automatic / Manual).
+  - Бескінечна пагінація через **Load more** (4 кемпери на сторінку), реалізована
+    з використанням `useInfiniteQuery` з TanStack Query, з урахуванням активних фільтрів.
+  - Порожній стан "Кемпери не знайдені", стан завантаження та стан помилки.
+- **Сторінка деталей кемпера** (`/catalog/[camperId]`)
+  - Відкривається в новій вкладці браузера з кнопки картки каталогу **Show more**.
+  - Фотогалерея з мініатюрами (Swiper, патерн thumbs-gallery).
+  - Повні технічні характеристики (форма, розміри, бак, витрата) та бейджі обладнання.
+  - Відгуки користувачів, відображені у вигляді 5-зіркової шкали.
+  - Форма бронювання (ім'я, email, дата, коментар) з валідацією на боці клієнта
+    та сповіщенням про успіх після відправки.
 
-## 🛠 Tech stack
+## 🛠 Технології
 
 - **Next.js 14** (App Router) + **TypeScript**
-- **TanStack Query** (`useInfiniteQuery`) for paginated data fetching
-- **CSS Modules** for styling (tokens matched from the Figma design)
-- **Swiper** for the image gallery
-- **React Icons** for iconography
-- **react-hot-toast** for booking confirmation notifications
-- Backend: [`https://campers-api.goit.study`](https://campers-api.goit.study/docs)
+- **TanStack Query** (`useInfiniteQuery`) для пагінованого завантаження даних
+- **CSS Modules** для стилізації (токени підібрані відповідно до дизайну у Figma)
+- **Swiper** для галереї зображень
+- **React Icons** для іконок
+- **react-hot-toast** для сповіщень про підтвердження бронювання
+- Бекенд: [`https://campers-api.goit.study`](https://campers-api.goit.study/docs)
 
-## 📦 Getting started
+## 📦 Початок роботи
 
 ```bash
-# install dependencies
+# встановити залежності
 npm install
 
-# run the dev server
+# запустити dev-сервер
 npm run dev
 
-# open http://localhost:3000
+# відкрити http://localhost:3000
 
-# production build
+# збірка для продакшну
 npm run build
 npm run start
 ```
 
-## 📁 Project structure
+## 📁 Структура проєкту
 
 ```
 src/
   app/
-    page.tsx                     # Home page
+    page.tsx                     # Головна сторінка
     catalog/
-      page.tsx                   # Catalog page (filters + infinite list)
+      page.tsx                   # Сторінка каталогу (фільтри + бескінечний список)
       catalog.module.css
       [camperId]/
-        page.tsx                 # Server component: fetch + metadata
-        CamperDetailsClient.tsx  # Layout: gallery, specs, reviews, booking
+        page.tsx                 # Серверний компонент: запит + metadata
+        CamperDetailsClient.tsx  # Лейаут: галерея, характеристики, відгуки, бронювання
         details.module.css
         not-found.tsx
     layout.tsx
@@ -69,40 +69,40 @@ src/
     Header/, Filters/, CamperCard/, RatingStars/, Loader/,
     Gallery/, VehicleDetails/, Reviews/, BookingForm/
   hooks/
-    useCampersInfinite.ts         # useInfiniteQuery wrapper
+    useCampersInfinite.ts         # wrapper для useInfiniteQuery
   lib/
     api.ts                        # fetchCampers / fetchCamperById
-    types.ts                      # Camper, CamperFilters, etc.
+    types.ts                      # Camper, CamperFilters тощо
   providers/
-    QueryProvider.tsx              # TanStack Query client provider
+    QueryProvider.tsx              # Провайдер клієнта TanStack Query
 ```
 
-## 🎨 Design
+## 🎨 Дизайн
 
-Desktop layout implemented to match the provided Figma mockup (colors,
-spacing, and component structure). Only the desktop version is required by
-the assignment; adjust breakpoints in the `*.module.css` files if you'd like
-to extend it to tablet/mobile.
+Десктопний макет реалізовано відповідно до наданого макету у Figma (кольори,
+відступи та структура компонентів). Для завдання достатньо лише десктоп-версії;
+змінюй брейкпоінти у файлах `*.module.css`, якщо хочеш додати адаптивність для
+планшетів/мобільних пристроїв.
 
-> Note: exact color hex values were sampled from exported mockup screenshots.
-> If you have direct Figma inspector access, double-check `globals.css`
-> design tokens against the source file and adjust if needed.
+> Примітка: точні HEX-значення кольорів були відібрані з експортованих скриншотів макету.
+> Якщо маєш доступ до інспектора у Figma, перевір відповідність токенів у `globals.css`
+> з оригіналом і при потребі відкоригуй.
 
-## ⚠️ Backend contract assumptions
+## ⚠️ Припущення щодо контракту з бекендом
 
-The public demo backend's exact field names weren't independently verified
-against a live OpenAPI spec at the time this project was generated. `src/lib/types.ts`
-and `src/lib/api.ts` are the single source of truth for the request/response
-shape — if the live API differs (e.g. field names for equipment flags or the
-booking endpoint), update those two files and the rest of the app keeps working.
+Точні імена полів у публічному демонстраційному бекенді не були незалежно перевірені
+проти живого OpenAPI-специфікації на момент створення проєкту. Файли `src/lib/types.ts`
+та `src/lib/api.ts` є одноосередковим джерелом істини для формату запитів/відповідей — якщо
+живий API відрізняється (наприклад, імена полів для прапорців обладнання або кінцева точка бронювання),
+онови ці два файли, і решта застосунку продовжить працювати.
 
-## 👤 Author
+## 👤 Автор
 
 _Shevchenko Yevhenii, [GitHub https://github.com/Yevhenii-Shevchenko]._
 
-## 🔗 Deployment
+## 🔗 Деплой
 
-Deploy to [Vercel](https://vercel.com) or [Netlify](https://www.netlify.com/):
+Розгорнути можна на [Vercel](https://vercel.com) або [Netlify](https://www.netlify.com/):
 
 ```bash
 # Vercel
